@@ -4,4 +4,8 @@ Comment bien documenter un projet django ?
 chaque app ou chaque dossier
 2)je viens d'apprendre qu'on ne commit jamais un fichier db.sqlite3 car c'est une base de données locale
 
-
+//pour écraser mon dépot local avec les fichiers distants
+git fetch origin
+git reset --hard origin/main
+//pour supprimer les fichiers non tracés par git
+git clean -fd
