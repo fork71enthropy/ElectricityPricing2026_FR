@@ -101,3 +101,26 @@ def collect_daily_prices() -> None:
     except Exception as e:
         logger.error(f"Unexpected error during price collection: {e}")
         raise
+
+
+def collect_one_time() -> None:
+    """
+    Main collection task — fetches yesterday's hourly spot prices.
+    Intended to be run daily via cron or Celery beat.
+    """
+    start_date_2 = end_date - timedelta(days=5)
+    end_date = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    start_date = end_date - timedelta(days=1)
+
+    logger.info(f"Collecting spot prices from {start_date} to {end_date}")
+
+    try:
+        prices = fetch_spot_prices(start_date, end_date)
+        saved = save_spot_prices(prices)
+        logger.info(f"Saved {saved} new price records")
+
+    except requests.HTTPError as e:
+        logger.error(f"RTE API error: {e.response.status_code} — {e.response.text}")
+    except Exception as e:
+        logger.error(f"Unexpected error during price collection: {e}")
+        raise
