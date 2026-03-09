@@ -10,7 +10,7 @@ pip freeze > requirements.txt
 echo "../../v_energy_dbf" > .gitignore
 ```
 
-## 2. Configuration base de données (30 min)
+## 2. Configuration base de données 
 `code inline`
 ```bash
 #Setup PostgreSQL + TimescaleDB localement (il est 13h26 14/02/2026, c'est ici que je suis)
