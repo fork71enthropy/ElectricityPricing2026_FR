@@ -84,6 +84,38 @@ Pour décider quelle couverture acheter — et à quel prix elle est justifiée 
 
 ---
 
+# Prix Négatifs sur le Marché Électrique
+
+## Pourquoi un prix peut-il devenir négatif ?
+
+C'est contre-intuitif mais ça s'explique par deux contraintes physiques simultanées.
+
+## Contrainte 1 : l'électricité ne se stocke pas
+
+À chaque instant, ce qui est produit doit être immédiatement consommé. Si la production dépasse la consommation, le réseau disjoncte. RTE doit maintenir l'équilibre en permanence.
+
+## Contrainte 2 : certains producteurs ne peuvent pas s'arrêter facilement
+
+Le nucléaire — qui représente 70% de la production française — ne s'arrête pas comme un robinet. Baisser la puissance d'un réacteur prend du temps et coûte cher. Les panneaux solaires produisent tant que le soleil brille, indépendamment de la demande.
+
+## Le Scénario des Prix Négatifs
+
+Un dimanche ensoleillé de printemps — faible demande industrielle, beaucoup de soleil, vent fort. La production solaire et éolienne inonde le réseau. EDF ne peut pas arrêter ses réacteurs nucléaires rapidement.
+
+Résultat : il y a trop d'électricité sur le réseau et personne ne veut l'acheter.
+
+Pour éviter que le réseau disjoncte, les producteurs sont prêts à **payer** les consommateurs pour qu'ils absorbent l'excédent. Le prix devient négatif.
+
+C'est exactement ça le -478 €/MWh observable dans les données historiques 2024-2026 — un moment de surproduction extrême où les producteurs payaient 478 € par MWh consommé pour écouler leur production.
+
+## L'Analogie
+
+C'est comme un boulanger qui a produit 10 fois trop de pain et qui n'a pas de congélateur — il préfère payer quelqu'un pour emporter les baguettes plutôt que de les jeter et d'avoir son four qui explose.
+
+## Implications pour la Modélisation
+
+Les prix négatifs sont un phénomène structurel du marché électrique européen, de plus en plus fréquent avec la montée en puissance des énergies renouvelables intermittentes. Tout modèle sérieux de prix spot électrique doit les capturer — c'est l'une des raisons pour lesquelles le modèle d'Ornstein-Uhlenbeck, qui permet des valeurs négatives contrairement à certains modèles log-normaux, est adapté à ce marché.
+
 ## Références
 
 - Schwartz, E. (1997). *The Stochastic Behavior of Commodity Prices*. Journal of Finance.
