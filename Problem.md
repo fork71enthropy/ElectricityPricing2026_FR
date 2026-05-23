@@ -41,3 +41,50 @@ S(t+dt) = S(t) + κ(μ - S(t))dt + σ√dt · ε,   ε ~ N(0,1)
 ## Ce que ce projet n'est pas
 
 Ce n'est pas un dashboard de visualisation de données publiques. C'est un moteur de modélisation quantitative qui transforme un historique de prix en une distribution probabiliste des prix futurs, avec une mesure de risque associée — le type d'outil qu'un desk énergie ou un fonds spécialisé commodités utilise pour piloter son exposition.
+
+
+# Choix Méthodologiques
+
+## Pourquoi le Modèle d'Ornstein-Uhlenbeck ?
+
+Les prix de l'électricité ont une propriété que la plupart des actifs financiers n'ont pas : la **mean-reversion**. Une action peut monter indéfiniment — Amazon est passé de 1$ à 3000$. L'électricité non — structurellement, les prix reviennent vers un équilibre dicté par les coûts de production.
+
+Si le prix spike à 400 €/MWh, les centrales à gaz les plus chères s'allument, l'offre augmente, le prix redescend. Si le prix tombe à -100 €/MWh, les producteurs coupent leur production, l'offre baisse, le prix remonte. Il y a un mécanisme physique de retour à l'équilibre.
+
+L'OU est le modèle stochastique le plus simple qui capture exactement ça — c'est pour ça que Schwartz (1997) l'a proposé pour les commodités et que c'est encore une référence aujourd'hui.
+
+Le modèle de Black-Scholes — utilisé pour les actions — ne capture pas la mean-reversion. Il serait inapproprié ici.
+
+---
+
+## Pourquoi la Simulation Monte Carlo ?
+
+Une fois le modèle OU calibré, il est impossible de calculer analytiquement "quel sera le prix dans 7 jours" — il y a trop d'incertitude. En revanche on peut simuler 10 000 trajectoires possibles et regarder la distribution des résultats. C'est ça Monte Carlo — remplacer le calcul exact par une simulation massive.
+
+---
+
+## Pourquoi un Industriel Veut Savoir le Prix la Semaine Prochaine ?
+
+Imagine une aciérie qui consomme 50 MWh par heure, 24h/24. Sur une semaine :
+
+```
+50 MWh × 24h × 7j = 8 400 MWh
+```
+
+À 61 €/MWh en moyenne, la facture hebdomadaire est de **512 000 €**. Mais si le prix spike à 200 €/MWh pendant deux jours à cause d'une vague de froid, elle dépasse le million.
+
+Cet industriel a deux options :
+
+- Acheter son électricité au prix spot et subir la volatilité
+- Acheter un contrat future ou une option pour fixer son prix à l'avance et sécuriser ses marges
+
+Pour décider quelle couverture acheter — et à quel prix elle est justifiée — il a besoin de connaître la distribution probable des prix futurs. C'est exactement ce que le modèle fournit.
+
+**La VaR à 95% lui dit quel budget maximum prévoir dans 95% des scénarios.** C'est de la gestion de risque appliquée à l'approvisionnement énergétique.
+
+---
+
+## Références
+
+- Schwartz, E. (1997). *The Stochastic Behavior of Commodity Prices*. Journal of Finance.
+- Lucia, J. & Schwartz, E. (2002). *Electricity Prices and Power Derivatives*. Review of Derivatives Research.
