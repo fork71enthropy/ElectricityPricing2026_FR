@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 db.sqlite3
 v_electricity_pricing/
+db.sqlite3
+*.sqlite3
+.env
+__pycache__/
+*.pyc
