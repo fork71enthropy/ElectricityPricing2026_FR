@@ -38,3 +38,4 @@ df.describe()
 6. 50%
 7. 75%
 8. max
+9. VAR : Value At Risk
