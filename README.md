@@ -112,9 +112,9 @@ ElectricityPricing_FR/
 - [x] Script de collecte automatique quotidienne (cron job)
 
 ### 🔄 Semaine 2 — Analyse Exploratoire (en cours)
-- [ ] Notebook `01_exploratory.ipynb` : statistiques descriptives des prix spot
-- [ ] Visualisation saisonnalité, autocorrélation, détection des pics
-- [ ] Vérification de la stationnarité (test ADF)
+- [x] Notebook `01_exploratory.ipynb` : statistiques descriptives des prix spot
+- [x] Visualisation saisonnalité, autocorrélation, détection des pics
+- [x] Vérification de la stationnarité (test ADF)
 
 ### Semaine 3 — Calibration du Modèle OU
 - [ ] Implémentation de la log-vraisemblance du processus OU
