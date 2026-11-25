@@ -177,9 +177,12 @@ Les 35 494 enregistrements révèlent déjà des patterns caractéristiques du m
 - Lucia, J. & Schwartz, E. (2002). *Electricity Prices and Power Derivatives*. Review of Derivatives Research.
 
 ---
-
 ## Auteur
 
-Candidat Master Mathématiques Appliquées  
-Recherche stage Finance de l'Énergie / Modélisation Quantitative  
-[github.com/fork71enthropy](https://github.com/fork71enthropy)
+**Joël Désiré Monthé Enguene**, étudiant ingénieur à EPITA Lyon.
+Recherche une alternance de data engineer / développeur Python dans l'énergie à partir de septembre 2027.
+
+- LinkedIn : [linkedin.com/in/joel-monthe-enguene](https://www.linkedin.com/in/jo%C3%ABl-d%C3%A9sir%C3%A9-month%C3%A9-enguene-278653295)
+- GitHub : [github.com/fork71enthropy](https://github.com/fork71enthropy)
+- Blog : [opus-symmetry.fr](https://www.opus-symmetry.fr)
+
