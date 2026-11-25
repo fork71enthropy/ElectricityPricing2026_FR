@@ -103,47 +103,22 @@ ElectricityPricing_FR/
 
 ---
 
-## Roadmap (8 semaines)
+## Avancement
 
-### ✅ Semaine 1 : Collecte et Stockage des Données
-- [x] Connexion API ENTSO-E et récupération de 35 494 prix spot historiques
-- [x] Modèle Django + PostgreSQL pour stocker les séries temporelles
-- [x] Script de collecte automatique quotidienne (cron job)
+### ✅ Fait
+- Connexion API ENTSO-E et récupération de 35 494 prix spot historiques
+- Modèle Django + PostgreSQL pour stocker les séries temporelles
+- Collecte automatique quotidienne (cron job)
+- Analyse exploratoire : statistiques descriptives, saisonnalité, autocorrélation, détection des pics, test de stationnarité ADF
 
-### 🔄 Semaine 2 : Analyse Exploratoire (en cours)
-- [x] Notebook `01_exploratory.ipynb` : statistiques descriptives des prix spot
-- [x] Visualisation saisonnalité, autocorrélation, détection des pics
-- [x] Vérification de la stationnarité (test ADF)
+### 🔄 En cours
+- Calibration du modèle OU : estimation de κ, μ, σ (régression AR(1) puis maximum de vraisemblance via `scipy.optimize`)
 
-### Semaine 3 : Calibration du Modèle OU
-- [ ] Implémentation de la log-vraisemblance du processus OU
-- [ ] Estimation des paramètres κ, μ, σ par `scipy.optimize`
-- [ ] Notebook `02_calibration.ipynb` : résultats et validation du modèle
-
-### Semaine 4 : Simulation Monte Carlo
-- [ ] Moteur de simulation vectorisé (numpy), N = 10 000 trajectoires
-- [ ] Calcul de la VaR à 95 % sur horizon 7 jours
-- [ ] Tests unitaires sur la simulation
-
-### Semaine 5 : API REST Backend
-- [ ] Endpoints DRF : prix historiques, paramètres calibrés, scénarios MC
-- [ ] Serializers et documentation des endpoints
-- [ ] Tests d'intégration API
-
-### Semaine 6 : Frontend React
-- [ ] Composant `PriceChart` : prix spot historiques (Plotly.js)
-- [ ] Composant `ModelParams` : affichage κ, μ, σ avec interprétation
-- [ ] Connexion frontend ↔ API backend
-
-### Semaine 7 : Visualisation Monte Carlo
-- [ ] Composant `MonteCarloChart` : N trajectoires simulées et intervalles de confiance
-- [ ] Affichage VaR 95 % sur le graphique
-- [ ] Contrôle interactif de l'horizon de simulation
-
-### Semaine 8 : Finalisation
-- [ ] Tests end-to-end
-- [ ] Déploiement (AWS EC2 ou Railway)
-- [ ] Documentation finale
+### Prévu
+- Simulation Monte Carlo vectorisée (N = 10 000 trajectoires) et VaR à 95 % sur 7 jours
+- API REST : prix historiques, paramètres calibrés, scénarios Monte Carlo
+- Frontend React (Plotly.js) : prix, paramètres et trajectoires simulées
+- Tests, déploiement (Railway) et documentation finale
 
 ---
 
